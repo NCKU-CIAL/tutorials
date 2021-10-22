@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Copyright 2017-present Open Networking Foundation
 #
@@ -25,7 +25,6 @@ from . import helper
 
 def error(msg):
     print(' - ERROR! ' + msg, file=sys.stderr)
-
 
 def info(msg):
     print(' - ' + msg, file=sys.stdout)
@@ -166,11 +165,8 @@ def insertTableEntry(sw, flow, p4info_helper):
     sw.WriteTableEntry(table_entry)
 
 
-# object hook for josn library, use str instead of unicode object
-# https://stackoverflow.com/questions/956867/how-to-get-string-objects-instead-of-unicode-from-json
 def json_load_byteified(file_handle):
-    return _byteify(json.load(file_handle, object_hook=_byteify),
-                    ignore_dicts=True)
+    return json.load(file_handle)
 
 
 def _byteify(data, ignore_dicts=False):

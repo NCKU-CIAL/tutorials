@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import argparse
 import sys
@@ -68,7 +68,7 @@ def main():
     iface = 'eth0'
 
     while True:
-        s = str(input('> '))
+        s = input('> ')
         if s == "quit":
             break
         print(s)
