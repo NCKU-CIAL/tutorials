@@ -42,6 +42,12 @@ you get started with P4 programming, organized into several modules:
     ```
 * wait for 1~2 hours
 
+## Q&A
+* `ModuleNotFoundError: No module named 'mininet.net'`
+    ```
+    sudo pip3 install -r requirements.txt
+    ```
+
 ## Presentation 
 
 The slides are available [online](http://bit.ly/p4d2-2018-spring) and
