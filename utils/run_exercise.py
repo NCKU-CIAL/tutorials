@@ -19,23 +19,19 @@
 # We encourage you to dissect this script to better understand the BMv2/Mininet
 # environment used by the P4 tutorial.
 #
-import os
-import sys
-import json
-import subprocess
-import re
 import argparse
+import json
+import os
+import subprocess
 from time import sleep
 
-from p4_mininet import P4Switch, P4Host
-
+import p4runtime_lib.simple_controller
+from mininet.cli import CLI
+from mininet.link import TCLink
 from mininet.net import Mininet
 from mininet.topo import Topo
-from mininet.link import TCLink
-from mininet.cli import CLI
-
+from p4_mininet import P4Host, P4Switch
 from p4runtime_switch import P4RuntimeSwitch
-import p4runtime_lib.simple_controller
 
 
 def configureP4Switch(**switch_args):
@@ -283,7 +279,9 @@ class ExerciseRunner:
                 device_id=device_id,
                 sw_conf_file=sw_conf_file,
                 workdir=os.getcwd(),
-                proto_dump_fpath=outfile)
+                proto_dump_fpath=outfile,
+                runtime_json=runtime_json
+            )
 
     def program_switch_cli(self, sw_name, sw_dict):
         """ This method will start up the CLI and use the contents of the

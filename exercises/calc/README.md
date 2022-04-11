@@ -23,7 +23,7 @@ switch in Mininet to test its behavior.
    ```
    This will:
    * compile `calc.p4`, and
-  
+
    * start a Mininet instance with one switches (`s1`) connected to
      two hosts (`h1`, `h2`).
    * The hosts are assigned IPs of `10.0.1.1` and `10.0.1.2`.
@@ -33,8 +33,8 @@ you to test your calculator. You can run the driver program directly
 from the Mininet command prompt:
 
 ```
-mininet> h1 python calc.py 
-> 
+mininet> h1 python calc.py
+>
 ```
 
 3. The driver program will provide a new prompt, at which you can type
@@ -70,7 +70,7 @@ We will use the following header format:
       +----------------+----------------+----------------+---------------+
       |                              Result                              |
       +----------------+----------------+----------------+---------------+
- 
+
 
 -  P is an ASCII Letter 'P' (0x50)
 -  4 is an ASCII Letter '4' (0x34)
@@ -81,7 +81,7 @@ We will use the following header format:
  -   '&' (0x26) Result = OperandA & OperandB
  -   '|' (0x7c) Result = OperandA | OperandB
  -   '^' (0x5e) Result = OperandA ^ OperandB
- 
+
 
 We will assume that the calculator header is carried over Ethernet,
 and we will use the Ethernet type 0x1234 to indicate the presence of
@@ -105,3 +105,11 @@ correct result:
 2
 >
 ```
+
+## Relevant Documentation
+
+The documentation for P4_16 and P4Runtime is available [here](https://p4.org/specs/)
+
+All excercises in this repository use the v1model architecture, the documentation for which is available at:
+1. The BMv2 Simple Switch target document accessible [here](https://github.com/p4lang/behavioral-model/blob/master/docs/simple_switch.md) talks mainly about the v1model architecture.
+2. The include file `v1model.p4` has extensive comments and can be accessed [here](https://github.com/p4lang/p4c/blob/master/p4include/v1model.p4).
